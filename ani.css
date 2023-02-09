@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* background-color: red; */
+  animation-name: load-spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+}
+
+.circle::before,
+.circle::after { 
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* width: 100%;
+  height: 100%; */
+  border-radius: 50%;
+  border: 20px solid transparent;
+  border-top-color: rgb(250, 66, 72);
+  border-left-color: rgb(93, 219, 186);
+  border-bottom-color: rgb(237, 230, 112);
+  border-right-color: rgb(100, 195, 242);
+}
+
+.circle::before {
+  filter:blur(2px);
+}
+
+.circle::after {
+  animation-name: loadspin-opacity;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes load-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-1800deg);
+  }
+}
+
+@keyframes loadspin-opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* [CSS]그라디언트를 이용해 원형차트/도넛차트 그리기(애니메이션으로 차트그리기 ) */
+
+/* .circle {
+  width: 200px;
+  height: 200px;
+  background: conic-gradient(#ff2222 0% 25%, #ffc33b 25% 50%, #21a6f3 50% 75%, #1cd47e 75% 100%);
+  border-radius: 50%;
+
+  animation-delay: 0.3s;
+  animation: move1 1.5s infinite; transform-origin: 50% 50%;
+};
+
+@keyframes move1 {
+  0% {
+    transform: rotate(720deg);
+  }
+  
+  100% {
+    transform: rotate(0deg);
+}
+} */
